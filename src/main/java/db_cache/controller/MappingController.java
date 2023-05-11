@@ -16,7 +16,7 @@ import db_cache.service.MappingService;
 @RestController
 public class MappingController {
 	
-	
+
 	@Autowired
 	private MappingService service;
 	

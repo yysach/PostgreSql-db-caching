@@ -3,7 +3,6 @@ package db_cache.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +12,11 @@ import db_cache.repository.MappingRespository;
 @Service
 public class MappingService {
 	
-	@Autowired
 	private MappingRespository respository;
+	
+	public MappingService(MappingRespository mappingRespository) {
+		this.respository = mappingRespository;
+	}
 	
 	public List<NbuVersionToAPIVersion> getAllMappingInfo() {
 		Optional< List<NbuVersionToAPIVersion> > listOfMapping = Optional.ofNullable(respository.findAll());

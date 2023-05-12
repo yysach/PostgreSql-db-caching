@@ -3,7 +3,6 @@ package db_cache.controller;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,10 +15,11 @@ import db_cache.service.MappingService;
 @RestController
 public class MappingController {
 	
-
-	@Autowired
 	private MappingService service;
 	
+	public MappingController(MappingService service) {
+		this.service = service;
+	}
 	
 	@RequestMapping(value = "/getAllMappingInfo", method = RequestMethod.GET)
 	public String getAllMappingInfo(@RequestBody HostDetails hostDetails) {
